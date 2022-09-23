@@ -1,7 +1,11 @@
 import React from "react";
+import { Navbar } from "../../custom";
 
-const MoviesDetailView = () => {
-  return <h1>MoviesDetailView</h1>;
+export const MoviesDetailView = () => {
+  return (
+    <>
+      <Navbar />
+      <h1>MoviesDetailView</h1>
+    </>
+  );
 };
-
-export default MoviesDetailView;

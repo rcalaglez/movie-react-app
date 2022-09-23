@@ -1,7 +1,12 @@
 import "./App.css";
+import AppRouter from "./router/AppRouter";
 
 const MoviesApp = () => {
-  return <div>Hello MoviesApp!</div>;
+  return (
+    <>
+      <AppRouter />
+    </>
+  );
 };
 
 export default MoviesApp;

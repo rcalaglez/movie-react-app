@@ -1,18 +1,19 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import LoginView from "../auth/views/LoginView";
-import MoviesDetailView from "../movies/views/MoviesDetailView";
-import MoviesListView from "../movies/views/MoviesListView";
+import { LoginView } from "../auth";
+import { MoviesDetailView, MoviesListView } from "../movies";
 
 const AppRouter = () => {
   return (
-    <Routes>
-      <Route path="list" element={<MoviesListView />} />
-      <Route path="detail" element={<MoviesDetailView />} />
-      <Route path="login" element={<LoginView />} />
+    <>
+      <Routes>
+        <Route path="list" element={<MoviesListView />} />
+        <Route path="detail" element={<MoviesDetailView />} />
+        <Route path="login" element={<LoginView />} />
 
-      <Route path="/" element={<Navigate to="/list" />} />
-    </Routes>
+        <Route path="/" element={<Navigate to="/list" />} />
+      </Routes>
+    </>
   );
 };
 

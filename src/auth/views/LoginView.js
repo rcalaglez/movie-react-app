@@ -1,7 +1,15 @@
 import React from "react";
 
-const LoginView = () => {
-  return <h1>LoginView</h1>;
+export const LoginView = () => {
+  return (
+    <>
+      <input
+        type="button"
+        value="Login"
+        onClick={() => {
+          console.log("clicked!");
+        }}
+      />
+    </>
+  );
 };
-
-export default LoginView;
