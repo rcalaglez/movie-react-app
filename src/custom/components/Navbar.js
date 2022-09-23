@@ -1,9 +1,17 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../auth";
 
 export const Navbar = () => {
   const { isUser, logout } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  const goLoginView = () => {
+    navigate("/login", {
+      replace: true,
+    });
+  };
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -14,18 +22,13 @@ export const Navbar = () => {
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
           {isUser ? (
-            <button
-              className="nav-item nav-link btn"
-              onClick={() => {
-                logout();
-              }}
-            >
+            <button className="nav-item nav-link btn" onClick={logout}>
               Logout
             </button>
           ) : (
-            <NavLink className="nav-item nav-link" to="/login">
+            <button className="nav-item nav-link btn" onClick={goLoginView}>
               Login
-            </NavLink>
+            </button>
           )}
         </ul>
       </div>

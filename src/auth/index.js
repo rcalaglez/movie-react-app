@@ -1,2 +1,2 @@
 export * from "./views";
-export * from "./contexts";
+export * from "./contexts/UserContext";

@@ -10,10 +10,10 @@ export const UserProvider = ({ children }) => {
       value={{
         isUser,
         login: () => {
-          setIsUser(false);
+          setIsUser(true);
         },
         logout: () => {
-          setIsUser(true);
+          setIsUser(false);
         },
       }}
     >
