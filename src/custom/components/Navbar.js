@@ -13,6 +13,21 @@ export const Navbar = () => {
     });
   };
 
+  const getLoginButton = () => {
+    if (isUser) {
+      return (
+        <button className="nav-item nav-link btn" onClick={logout}>
+          Logout
+        </button>
+      );
+    }
+    return (
+      <button className="nav-item nav-link btn" onClick={goLoginView}>
+        Login
+      </button>
+    );
+  };
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
@@ -20,17 +35,7 @@ export const Navbar = () => {
       </Link>
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-        <ul className="navbar-nav ml-auto">
-          {isUser ? (
-            <button className="nav-item nav-link btn" onClick={logout}>
-              Logout
-            </button>
-          ) : (
-            <button className="nav-item nav-link btn" onClick={goLoginView}>
-              Login
-            </button>
-          )}
-        </ul>
+        <ul className="navbar-nav ml-auto">{getLoginButton()}</ul>
       </div>
     </nav>
   );
