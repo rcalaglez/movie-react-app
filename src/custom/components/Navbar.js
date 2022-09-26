@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../auth";
+import Button from "./Button";
+
+import "./navbar.scss";
 
 export const Navbar = () => {
   const { isUser, logout } = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const goLoginView = () => {
@@ -15,27 +17,19 @@ export const Navbar = () => {
 
   const getLoginButton = () => {
     if (isUser) {
-      return (
-        <button className="nav-item nav-link btn" onClick={logout}>
-          Logout
-        </button>
-      );
+      return <Button onClick={logout}>Logout</Button>;
     }
-    return (
-      <button className="nav-item nav-link btn" onClick={goLoginView}>
-        Login
-      </button>
-    );
+    return <Button onClick={goLoginView}>Login</Button>;
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-      <Link className="navbar-brand" to="/">
-        Myvies!
+    <nav className="header ">
+      <Link className="title" to="/">
+        MYVIES!
       </Link>
 
-      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-        <ul className="navbar-nav ml-auto">{getLoginButton()}</ul>
+      <div>
+        <ul className="">{getLoginButton()}</ul>
       </div>
     </nav>
   );

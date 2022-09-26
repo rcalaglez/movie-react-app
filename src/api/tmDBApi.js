@@ -17,6 +17,11 @@ const tmDBApi = {
     const url = category[cat] + "/" + id;
     return axiosClient.get(url, params);
   },
+
+  getToken: (params) => {
+    const url = "authentication/token/new";
+    return axiosClient.get(url, params);
+  },
 };
 
 export default tmDBApi;

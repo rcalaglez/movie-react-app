@@ -1,0 +1,16 @@
+@use "../../scss/variables" as *;
+@use "../../scss/mixin" as *;
+
+.header {
+  height: 13vh;
+  width: 100vw;
+  @include flex(center, center);
+  margin-bottom: 3rem;
+  background-color: $main-color;
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+  }
+}
