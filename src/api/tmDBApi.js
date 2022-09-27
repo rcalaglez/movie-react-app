@@ -8,11 +8,18 @@ export const movieType = {
   popular: "popular",
 };
 
+/**
+ * Custom API with some endpoints of The Movie Database API
+ * that uses an instance of Axios to fetch data.
+ */
 const tmDBApi = {
+  // It get the most popular movies list
   getMoviesList: (type, params) => {
     const url = "movie/" + movieType[type];
     return axiosClient.get(url, params);
   },
+
+  // It get detail information about a movie by its id
   detail: (cat, id, params) => {
     const url = category[cat] + "/" + id;
     return axiosClient.get(url, params);
@@ -20,6 +27,12 @@ const tmDBApi = {
 
   getToken: (params) => {
     const url = "authentication/token/new";
+    return axiosClient.get(url, params);
+  },
+
+  // It returns a guest_session_id
+  loginAsGuest: (params) => {
+    const url = "authentication/guest_session/new";
     return axiosClient.get(url, params);
   },
 };

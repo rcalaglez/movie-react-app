@@ -24,7 +24,7 @@ export const Navbar = () => {
 
   return (
     <nav className="header ">
-      <Link className="title" to="/">
+      <Link className="header__title" to="/">
         MYVIES!
       </Link>
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import apiConfig from "../../api/apiConfig";
 import "./movie-list.scss";
 import tmDBApi from "../../api/tmDBApi";
 import Button from "../../custom/components/Button";
+import MovieCard from "../components/MovieCard";
 
 export const MoviesListView = () => {
   const [movies, setMovies] = useState([]);
@@ -41,16 +41,7 @@ export const MoviesListView = () => {
       </div>
       <div className="movie-grid">
         {movies.map((movie, index) => (
-          <div key={index} className="movie-card">
-            <img
-              key={index}
-              src={apiConfig.w500Image(movie.poster_path)}
-              alt=""
-            />
-            <span className="title">{movie.title}</span>
-            <span className="release-date">{movie.release_date}</span>
-            <span className="popularity">{movie.vote_average}</span>
-          </div>
+          <MovieCard key={index} movieData={movie} />
         ))}
       </div>
       {page < totalPage ? (

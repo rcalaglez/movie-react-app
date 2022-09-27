@@ -6,16 +6,18 @@ import { MoviesDetailView, MoviesListView } from "../views";
 export const MoviesRoutes = () => {
   return (
     <>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
 
-      <div className="container">
+      <main className="container">
         <Routes>
           <Route path="list" element={<MoviesListView />} />
-          <Route path="detail" element={<MoviesDetailView />} />
+          <Route path="movie/:id" element={<MoviesDetailView />} />
 
           <Route path="/" element={<Navigate to="/list" />} />
         </Routes>
-      </div>
+      </main>
     </>
   );
 };

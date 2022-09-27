@@ -1,0 +1,62 @@
+@use "../../scss/" as *;
+
+.movie-content {
+  @include flex(flex-start, flex-start);
+  max-width: 1260px;
+  position: relative;
+  padding: 0 2rem;
+
+  &__poster {
+    flex: 1;
+
+    @include mobile {
+      display: none;
+    }
+
+    &__img {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 165%;
+    }
+  }
+
+  &__info {
+    width: 70%;
+    padding-left: 2rem;
+    position: relative;
+
+    @include mobile {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    & > * {
+      margin-bottom: 2rem;
+    }
+
+    .title {
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    .genres {
+      &__movie {
+        padding: 0.5rem 1.1rem;
+        border: 2px solid;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background-color: $main-color;
+        color: black;
+      }
+      & > * ~ * {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .overview {
+      font-size: 1.15rem;
+    }
+  }
+}

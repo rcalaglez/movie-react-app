@@ -1,0 +1,35 @@
+@use "../../scss/mixin" as *;
+
+.movie-card {
+  border-radius: 16px;
+  color: white;
+  flex-direction: column;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+
+  @include flex(center, center);
+
+  img {
+    width: 100%;
+    border-radius: 14px 14px 0 0;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .release-date {
+    margin-bottom: 1rem;
+  }
+
+  .popularity {
+    font-weight: bold;
+    font-size: 30px;
+  }
+}

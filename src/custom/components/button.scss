@@ -9,7 +9,8 @@ button {
   border: 4px solid transparent;
   background-color: $main-color;
   color: black;
-  text-transform: uppercase;
+  font-family: $font-title;
+  font-size: 20px;
   border-radius: 0;
   padding: 0.5rem 1.8rem;
 }

@@ -7,5 +7,11 @@ $border-radius: 16px;
 
 $font-family: "Montserrat", sans-serif;
 
+@font-face {
+  font-family: "CornerStone";
+  src: url("../assets/fonts/Cornerstone.ttf");
+}
+$font-title: "CornerStone", sans-serif;
+
 $mobile-width: 600px;
 $tablet-width: 1024px;
