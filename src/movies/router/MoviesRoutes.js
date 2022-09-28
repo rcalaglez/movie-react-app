@@ -10,7 +10,7 @@ export const MoviesRoutes = () => {
         <Navbar />
       </header>
 
-      <main className="container">
+      <main className="container animate__animated animate__fadeIn">
         <Routes>
           <Route path="list" element={<MoviesListView />} />
           <Route path="movie/:id" element={<MoviesDetailView />} />

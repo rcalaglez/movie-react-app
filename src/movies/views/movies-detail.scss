@@ -41,6 +41,11 @@
     }
 
     .genres {
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+      }
+
       &__movie {
         padding: 0.5rem 1.1rem;
         border: 2px solid;

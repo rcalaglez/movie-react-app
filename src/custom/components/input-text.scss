@@ -4,6 +4,10 @@
 .minimal-input {
   position: relative;
   width: 350px;
+
+  @include mobile-s {
+    width: 300px;
+  }
   margin-bottom: 70px;
   font-size: 0;
 }
@@ -26,6 +30,10 @@ label {
 
   @include tablet {
     font-size: 20px;
+  }
+
+  @include mobile-s {
+    font-size: 12px;
   }
 }
 

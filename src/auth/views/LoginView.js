@@ -50,7 +50,6 @@ export const LoginView = () => {
 
   const onLogin = async () => {
     const response = await tmDBApi.loginAsGuest({ params: {} });
-    console.log(response);
     let isLogged = response && response.guest_session_id;
     if (isLogged) {
       login(response.guest_session_id);
@@ -64,7 +63,7 @@ export const LoginView = () => {
   };
 
   return (
-    <>
+    <div className="animate__animated animate__fadeIn">
       <header>
         <nav className="header ">
           <Link className="header__title" to="/">
@@ -104,6 +103,6 @@ export const LoginView = () => {
           MYVIES! is a web application made by Rafael Cala
         </span>
       </footer>
-    </>
+    </div>
   );
 };
