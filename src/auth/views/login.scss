@@ -1,9 +1,39 @@
 @use "../../scss/variables" as *;
 @use "../../scss/mixin" as *;
 
+.header {
+  @include flex(center, center);
+  background-color: $main-color;
+  height: 10vh;
+  &__title {
+    font-family: $font-title;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+  }
+}
+
 .login-content {
+  margin-top: -10vh;
+  padding-top: 2rem;
   background-color: $main-color;
   @include flex(center, center);
   font-family: $font-family;
-  height: 100vh;
+  flex-direction: column;
+  height: 70vh;
+  &__error {
+    color: $error-color;
+  }
+}
+
+.footer {
+  @include flex(center, center);
+  background-color: $main-color;
+  color: black;
+  height: 20vh;
+  text-align: center;
+  &__app-title {
+    font-family: $font-title;
+    font-weight: bold;
+  }
 }

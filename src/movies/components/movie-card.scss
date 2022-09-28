@@ -6,10 +6,13 @@
   flex-direction: column;
   padding-bottom: 16px;
   padding-top: 16px;
-  text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: clip;
+  text-overflow: ellipsis;
+
+  &:hover {
+    cursor: url("../../assets/images/icons8-popcorn-32.png"), auto;
+  }
 
   @include flex(center, center);
 
@@ -22,6 +25,7 @@
   .title {
     font-weight: bold;
     font-size: 1.25rem;
+    margin-bottom: 4px;
   }
 
   .release-date {
@@ -31,5 +35,33 @@
   .popularity {
     font-weight: bold;
     font-size: 30px;
+    margin-bottom: 12px;
+  }
+
+  .progress {
+    width: 80%;
+    height: 10px;
+    border-radius: 4px;
+    padding: 1px;
+  }
+
+  .bar {
+    background-color: #f6d155;
+    width: 70%;
+    height: 100%;
+    border-radius: 16px;
+  }
+
+  @keyframes slide {
+    from {
+      left: 150%;
+    }
+    to {
+      left: -150%;
+    }
+  }
+  .slide {
+    position: relative;
+    animation: slide 5s linear infinite;
   }
 }

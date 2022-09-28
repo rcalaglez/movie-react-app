@@ -58,5 +58,14 @@
     .overview {
       font-size: 1.15rem;
     }
+
+    .rate {
+      &__link {
+        color: $main-color;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }

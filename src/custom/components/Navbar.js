@@ -17,9 +17,17 @@ export const Navbar = () => {
 
   const getLoginButton = () => {
     if (isUser) {
-      return <Button onClick={logout}>Logout</Button>;
+      return (
+        <Button className="header__log__button" onClick={logout}>
+          Logout
+        </Button>
+      );
     }
-    return <Button onClick={goLoginView}>Login</Button>;
+    return (
+      <Button className="header__log__button" onClick={goLoginView}>
+        Login
+      </Button>
+    );
   };
 
   return (
@@ -28,7 +36,7 @@ export const Navbar = () => {
         MYVIES!
       </Link>
 
-      <div>
+      <div className="header__log">
         <ul className="">{getLoginButton()}</ul>
       </div>
     </nav>
