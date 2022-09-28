@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import InputText from "../../custom/components/InputText";
 import { useFormValidation } from "../../custom/hooks/useFormValidation";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 import tmDBApi from "../../api/tmDBApi";
 import apiConfig from "../../api/apiConfig";
@@ -56,9 +58,19 @@ export const MoviesDetailView = () => {
     const params = {
       guest_session_id: guestSessionId,
     };
-
-    await tmDBApi.rateMovie(id, rate, {
+    console.log(Number(rate));
+    await tmDBApi.rateMovie(id, Number(rate), {
       params,
+    });
+
+    toast.success("Your rate has been sent!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     });
   };
 
@@ -66,6 +78,17 @@ export const MoviesDetailView = () => {
     <>
       {movie ? (
         <>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
           <div className="mb-3 movie-content container animate__animated animate__fadeInUp">
             <div className="movie-content__poster">
               <div

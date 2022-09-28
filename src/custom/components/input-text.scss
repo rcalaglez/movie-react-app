@@ -6,7 +6,7 @@
   width: 350px;
 
   @include mobile-s {
-    width: 300px;
+    width: 280px;
   }
   margin-bottom: 70px;
   font-size: 0;
@@ -33,7 +33,7 @@ label {
   }
 
   @include mobile-s {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 
