@@ -58,7 +58,6 @@ export const MoviesDetailView = () => {
     const params = {
       guest_session_id: guestSessionId,
     };
-    console.log(Number(rate));
     await tmDBApi.rateMovie(id, Number(rate), {
       params,
     });
@@ -76,7 +75,7 @@ export const MoviesDetailView = () => {
 
   return (
     <>
-      {movie ? (
+      {movie && (
         <>
           <ToastContainer
             position="bottom-right"
@@ -125,26 +124,17 @@ export const MoviesDetailView = () => {
                       errorMessage={errors.rate}
                       onChange={handleChange("rate")}
                     />
-                    <Button onClick={(e) => handleSubmit()}>Send</Button>
+                    <Button onClick={() => handleSubmit()}>Send</Button>
                   </>
                 ) : (
                   <p>
-                    Would you like to rate this film? You must be
-                    <a
-                      href=""
-                      className="rate__link"
-                      onClick={goLoginViewSavingInfo}
-                    >
-                      logged in.
-                    </a>
+                    Would you like to rate this film? You must be logged in.
                   </p>
                 )}
               </div>
             </div>
           </div>
         </>
-      ) : (
-        <h1>Loading...</h1>
       )}
     </>
   );
