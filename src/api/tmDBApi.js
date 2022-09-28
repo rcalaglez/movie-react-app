@@ -36,10 +36,10 @@ const tmDBApi = {
     return axiosClient.get(url, params);
   },
 
-  // It rates a movie of a logged user
+  // It rates a movie of a logged user (as guest)
   rateMovie: (id, userRating, params) => {
     const url = "movie/" + id + "/rating";
-    return axiosClient.post(url, userRating, params);
+    return axiosClient.post(url, { value: userRating }, params);
   },
 };
 

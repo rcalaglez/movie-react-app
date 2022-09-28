@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import TextField from "@mui/material/TextField";
+import InputText from "../../custom/components/InputText";
+import { useFormValidation } from "../../custom/hooks/useFormValidation";
 
 import tmDBApi from "../../api/tmDBApi";
 import apiConfig from "../../api/apiConfig";
@@ -13,8 +14,26 @@ import Button from "../../custom/components/Button";
 export const MoviesDetailView = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
-  const [rate, setRate] = useState(null);
   const { isUser, guestSession } = useContext(UserContext);
+
+  const { handleSubmit, handleChange, data, errors } = useFormValidation({
+    validations: {
+      rate: {
+        required: {
+          value: true,
+          message: "This field cannot be empty",
+        },
+        custom: {
+          isValid: (value) => Number(value) >= 0.5 && Number(value) <= 10,
+          message: "Rate should be between 0.5 and 10",
+        },
+      },
+    },
+    initialValues: {
+      rate: "",
+    },
+    onSubmit: () => sendMovieRatingByCurrentUser(id, data.rate, guestSession),
+  });
 
   const navigate = useNavigate();
 
@@ -30,6 +49,16 @@ export const MoviesDetailView = () => {
   const goLoginViewSavingInfo = () => {
     navigate("/login", {
       replace: true,
+    });
+  };
+
+  const sendMovieRatingByCurrentUser = async (id, rate, guestSessionId) => {
+    const params = {
+      guest_session_id: guestSessionId,
+    };
+
+    await tmDBApi.rateMovie(id, rate, {
+      params,
     });
   };
 
@@ -63,19 +92,21 @@ export const MoviesDetailView = () => {
               <div className="rate">
                 {isUser ? (
                   <>
-                    <TextField
-                      value={rate || ""}
-                      onChange={(e) => {
-                        setRate(e.target.value);
-                      }}
-                      label="Rate the movie"
-                      variant="standard"
+                    <InputText
+                      required
+                      color="white"
+                      type="number"
+                      id="rating"
+                      value={data.rate || ""}
+                      label="Rate"
+                      errorMessage={errors.rate}
+                      onChange={handleChange("rate")}
                     />
-                    <Button>Rate the movie</Button>
+                    <Button onClick={(e) => handleSubmit()}>Send</Button>
                   </>
                 ) : (
                   <p>
-                    Would you like to rate the film? You must be
+                    Would you like to rate this film? You must be
                     <a
                       href=""
                       className="rate__link"

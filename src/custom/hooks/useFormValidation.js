@@ -19,7 +19,7 @@ export const useFormValidation = (options) => {
     });
   };
 
-  const handleSubmit = async (submitFunction) => {
+  const handleSubmit = async () => {
     const validations = options?.validations;
     if (validations) {
       let valid = true;
@@ -27,7 +27,6 @@ export const useFormValidation = (options) => {
 
       for (const key in validations) {
         const value = data[key];
-        console.log(value);
         const validation = validations[key];
         if (validation?.required?.value && !value && value === "") {
           valid = false;
@@ -53,7 +52,9 @@ export const useFormValidation = (options) => {
       }
     }
     setErrors({});
-    if (submitFunction !== null) submitFunction();
+    if (options?.onSubmit) {
+      options.onSubmit();
+    }
   };
 
   return {

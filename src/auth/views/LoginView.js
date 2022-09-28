@@ -40,7 +40,9 @@ export const LoginView = () => {
       username: "",
       password: "",
     },
-    onSubmit: () => null,
+    onSubmit: () => {
+      onLogin();
+    },
   });
 
   const navigate = useNavigate();
@@ -90,7 +92,7 @@ export const LoginView = () => {
           onChange={handleChange("password")}
         />
 
-        <Button onClick={(e) => handleSubmit(onLogin)}>Login</Button>
+        <Button onClick={(e) => handleSubmit()}>Login</Button>
         {errorMessage.length !== 0 ? (
           <span className="animate__animated animate__fadeIn animate__fast login-content__error">
             {errorMessage}
@@ -98,8 +100,9 @@ export const LoginView = () => {
         ) : null}
       </main>
       <footer className="footer">
-        <span className="footer__app-title">MYVIES! </span> is a web application
-        made by <strong>Rafael Cala</strong>
+        <span className="footer__app-title">
+          MYVIES! is a web application made by Rafael Cala
+        </span>
       </footer>
     </>
   );

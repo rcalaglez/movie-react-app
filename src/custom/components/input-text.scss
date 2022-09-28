@@ -1,9 +1,11 @@
 @use "../../scss/variables" as *;
+@use "../../scss/breakpoint" as *;
 
 .minimal-input {
   position: relative;
-  width: 300px;
+  width: 350px;
   margin-bottom: 70px;
+  font-size: 0;
 }
 
 label {
@@ -21,6 +23,10 @@ label {
   border: none;
   box-shadow: none;
   font-size: 40px;
+
+  @include tablet {
+    font-size: 20px;
+  }
 }
 
 .minimal-textfield:focus {
@@ -52,4 +58,16 @@ label {
 .blink {
   text-decoration: blink;
   animation: blinker 0.5s ease-in-out alternate infinite;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
